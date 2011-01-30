@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Tests.Core
@@ -36,23 +35,23 @@ namespace Tests.Core
         public static void ShouldBeNull(this object value)
         {
             Assert.IsNull(value);
-        }     
-      
+        }
+
         public static void ShouldBeLessThan(this double extendedEntity, double value)
         {
             Assert.IsTrue(extendedEntity < value);
         }
-      
+
         public static void ShouldBeGreaterThan(this double extendedEntity, double value)
         {
             Assert.IsTrue(extendedEntity > value);
         }
-       
+
         public static void ShouldBeGreater(this int extendedEntity, int value)
         {
             Assert.IsTrue(extendedEntity > value);
         }
-        
+
         public static void ShouldBeLess(this int extendedEntity, int value)
         {
             Assert.IsTrue(extendedEntity < value);
@@ -60,12 +59,14 @@ namespace Tests.Core
 
         public static void ShouldUnorderedEqual<T>(this ICollection<T> extendedCollection, ICollection<T> value)
         {
-            Assert.IsTrue(ICollectionComparer.UnorderedEqual<T>(extendedCollection, value));
+            Assert.IsTrue(ICollectionComparer.UnorderedEqual(extendedCollection, value));
         }
+
         public static void ShouldUnorderedNotEqual<T>(this ICollection<T> extendedCollection, ICollection<T> value)
         {
-            Assert.IsFalse(ICollectionComparer.UnorderedEqual<T>(extendedCollection, value));
+            Assert.IsFalse(ICollectionComparer.UnorderedEqual(extendedCollection, value));
         }
+
         /// <summary>
         /// Verifies that two objects are the same instance.
         /// </summary>
@@ -105,6 +106,7 @@ namespace Tests.Core
         {
             Assert.IsNotInstanceOfType(actual, notExpected);
         }
+
         public static void ShouldContain<T>(this IEnumerable<T> extendedCollection, T value)
         {
             Assert.IsTrue(extendedCollection.Contains(value));

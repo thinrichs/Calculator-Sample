@@ -1,36 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using CalculationEngine;
 
 namespace Calculator
 {
-    public partial class _Default : System.Web.UI.Page, ICalculationView
+    public partial class _Default : Page, ICalculationView
     {
-        CalculationPresenter presenter;
+        private CalculationPresenter presenter;
+
+        public bool IsPostBack
+        {
+            get { return base.IsPostBack; }
+        }
+
+        // sourced from application
 
         #region ICalculationView Members
 
-        // sourced from application
         public CalculationSet CalculationSet
         {
             get { return Session["CalculationSet"] as CalculationSet; }
             set { Session["CalculationSet"] = value; }
         }
+
         public IList<Function> PossibleFunctions
         {
             get { return Session["PossibleFunctions"] as IList<Function>; }
             set { Session["PossibleFunctions"] = value; }
         }
+
         // sourced from view
         public Function Function { get; set; }
         public double Factor { get; set; }
 
         #endregion
-
 
         // called once on initial page load.  Probably should be called on the view from the presenter.
         private void SetupUI()
@@ -38,6 +43,7 @@ namespace Calculator
             ActionDropDown.DataSource = PossibleFunctions;
             ActionDropDown.DataBind();
         }
+
         // translates our UI representations to system model objects
         private void TranslateUIToModel()
         {
@@ -53,26 +59,30 @@ namespace Calculator
                 }
             }
         }
+
         private void TranslateModelToUI()
-        {   // make XML output more HTML friendly
+        {
+            // make XML output more HTML friendly
             CaculationXMLLabel.Text = Server.HtmlEncode(CalculationSet.HistoryAsXML)
                 .Replace(" ", "&nbsp;")
-                .Replace(System.Environment.NewLine, "<br />");
+                .Replace(Environment.NewLine, "<br />");
             FactorText.Value = CalculationSet.CurrentResult.ToString();
-
         }
+
         private void ShowError(string message)
         {
             ErrorMessage.Text = message;
             ErrorMessage.Visible = true;
         }
+
         // give public access to postback, for javascript
-        public bool IsPostBack  { get { return base.IsPostBack; } }
+
         // events are listed in the order they occur
         protected void Page_Init()
         {
-            presenter = new CalculationPresenter(this as ICalculationView);
+            presenter = new CalculationPresenter(this);
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -82,8 +92,8 @@ namespace Calculator
             }
             else
             {
-                TranslateUIToModel();                
-                ProcessCalculation();                                
+                TranslateUIToModel();
+                ProcessCalculation();
             }
         }
 
@@ -101,16 +111,19 @@ namespace Calculator
             }
             catch (ArithmeticException mathError)
             {
-                ShowError(mathError.Message);                
+                ShowError(mathError.Message);
             }
         }
+
         public void NewSession(object sender, EventArgs e)
-        { 
+        {
             presenter.OnViewInitialized();
         }
+
         protected void Page_PreRender()
-        {  // this isn't done in Page_Load so that we have time to process our model changes of the postback
-            TranslateModelToUI();            
+        {
+            // this isn't done in Page_Load so that we have time to process our model changes of the postback
+            TranslateModelToUI();
         }
     }
 }

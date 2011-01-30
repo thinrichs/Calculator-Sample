@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using CalculationEngine;
 
 namespace CalculatorTests.Mocks
 {
-    class MockCalculationView : ICalculationView
+    internal class MockCalculationView : ICalculationView
     {
+        internal bool _historySent;
+
+        #region ICalculationView Members
+
         public CalculationSet CalculationSet { get; set; }
         public IList<Function> PossibleFunctions { get; set; }
         public double Factor { get; set; }
         public Function Function { get; set; }
 
-        internal bool _historySent;
+        #endregion
+
         public void SendHistoryAsDownload()
         {
             _historySent = true;

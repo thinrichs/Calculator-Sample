@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Calculator.Tests;
 using CalculationEngine;
+using Calculator.Tests;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CalculatorTests.Tests
 {
@@ -23,11 +20,11 @@ namespace CalculatorTests.Tests
         public override void Because()
         {
             view.Function = CalculationActions.Add;
-            view.Factor = 999999;            
+            view.Factor = 999999;
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof (ArgumentOutOfRangeException))]
         public void Calculation_Should_Result_In_ArithmeticException()
         {
             presenter.OnCalculation();

@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Tests.Core
 {
-    class ICollectionComparer
-    {   // from http://dotnetperls.com/list-equals
+    internal class ICollectionComparer
+    {
+        // from http://dotnetperls.com/list-equals
         public static bool UnorderedEqual<T>(ICollection<T> a, ICollection<T> b)
         {
             // 1
@@ -17,7 +15,7 @@ namespace Tests.Core
             }
             // 2
             // Initialize new Dictionary of the type
-            Dictionary<T, int> d = new Dictionary<T, int>();
+            var d = new Dictionary<T, int>();
             // 3
             // Add each key's frequency from collection A to the Dictionary
             foreach (T item in a)

@@ -1,11 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using CalculationEngine;
 using Calculator.Tests;
-using CalculatorTests.Mocks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Core;
-using System;
 
 namespace CalculatorTests.Tests
 {
@@ -16,22 +15,22 @@ namespace CalculatorTests.Tests
     public class When_A_Calculation_Of_Each_Type_Occurs : CalculationViewTest
     {
         public override void Because()
-        {            
+        {
             view.Function = CalculationActions.Add;
             view.Factor = Math.PI;
             presenter.OnCalculation();
-            
+
             view.Function = CalculationActions.Multiply;
             view.Factor = Math.PI;
             presenter.OnCalculation();
-            
+
             view.Function = CalculationActions.Subtract;
             view.Factor = Math.PI;
             presenter.OnCalculation();
-            
+
             view.Function = CalculationActions.Divide;
             view.Factor = Math.PI;
-            presenter.OnCalculation();          
+            presenter.OnCalculation();
         }
 
         [TestMethod]
@@ -40,6 +39,7 @@ namespace CalculatorTests.Tests
             XElement xml = XElement.Parse(view.CalculationSet.HistoryAsXML);
             xml.DescendantNodes().Count().ShouldEqual(4);
         }
+
         [TestMethod]
         public void Calculation_Result_Should_Equal_Two_And_Change()
         {

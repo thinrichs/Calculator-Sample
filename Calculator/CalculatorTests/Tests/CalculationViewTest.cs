@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Calculator.Tests;
+﻿using CalculationEngine;
 using CalculatorTests.Mocks;
-using CalculationEngine;
 
 namespace Calculator.Tests
 {
@@ -18,6 +13,6 @@ namespace Calculator.Tests
         {
             presenter = new CalculationPresenter(view);
             presenter.OnViewInitialized();
-        }    
+        }
     }
 }

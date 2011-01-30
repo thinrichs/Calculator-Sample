@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Calculator">
+</Property><Property Name="Solution File" Value="C:\depot_root\Calculator-Sample\Calculator\Calculator.sln">
+</Property><Property Name="Date" Value="Sunday, January 30, 2011">
+</Property><Property Name="Time" Value="11:44 AM">
+</Property></Properties><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CalculatorTests" Source="CalculatorTests\CalculatorTests.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CalculatorTests" Source="CalculatorTests\CalculatorTests.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CalculationEngine" Source="CalculationEngine\CalculationEngine.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="CalculationEngine" Source="CalculationEngine\CalculationEngine.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Calculator.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="Calculator.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Calculator" Source="Calculator\Calculator.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="3" Project="" Source="Calculator.vsmdi" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Calculator.vsmdi" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="3" Project="" Source="LocalTestRun.testrunconfig" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LocalTestRun.testrunconfig" Description="The file was converted to the current format.">
+</Event><Event ErrorLevel="0" Project="CalculatorTests" Source="CalculatorTests\CalculatorTests.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="CalculationEngine" Source="CalculationEngine\CalculationEngine.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

@@ -1,19 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace CalculationEngine
+﻿namespace CalculationEngine
 {
     public class CalculationPresenter
     {
-        ICalculationView view;
+        private readonly ICalculationView view;
 
         public CalculationPresenter(ICalculationView view)
         {
             this.view = view;
         }
-       
+
         public void OnViewInitialized()
         {
             view.CalculationSet = CalculationController.NewCalculationSet;
@@ -23,6 +18,6 @@ namespace CalculationEngine
         public void OnCalculation()
         {
             CalculationController.AddToCalculationSet(view.CalculationSet.ID, view.Function, view.Factor);
-        }       
+        }
     }
 }

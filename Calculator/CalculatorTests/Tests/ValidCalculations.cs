@@ -1,9 +1,6 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System.Linq;
 using CalculationEngine;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Core;
 
 namespace Calculator.Tests
@@ -13,7 +10,7 @@ namespace Calculator.Tests
     /// </summary>
     [TestClass]
     public class When_Checking_Valid_Functions : CalculationViewTest
-    {   
+    {
         public override void Because()
         {
             presenter.OnViewInitialized();

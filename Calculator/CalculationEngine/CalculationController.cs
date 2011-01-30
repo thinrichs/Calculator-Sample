@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Collections;
 
 namespace CalculationEngine
 {
     public class CalculationController
     {
-        private static int highestCalculationID = 0;
-        private static Dictionary<int, CalculationSet> sets = new Dictionary<int, CalculationSet>();
+        private static int highestCalculationID;
+        private static readonly Dictionary<int, CalculationSet> sets = new Dictionary<int, CalculationSet>();
 
         public static CalculationSet NewCalculationSet
         {
             get
             {
                 highestCalculationID++;
-                sets[highestCalculationID] =  new CalculationSet() { ID = highestCalculationID };
-                return sets[highestCalculationID] as CalculationSet;
+                sets[highestCalculationID] = new CalculationSet {ID = highestCalculationID};
+                return sets[highestCalculationID];
             }
         }
 
@@ -39,11 +36,11 @@ namespace CalculationEngine
                 {
                     function = CalculationActions.Add;
                 }
-                Calculation newCalculation = new Calculation(set.CurrentResult, function, factor);               
+                var newCalculation = new Calculation(set.CurrentResult, function, factor);
                 set.PreviousResult = set.CurrentResult;
                 set.CurrentResult = newCalculation.Result;
                 set.Add(newCalculation);
-            }            
+            }
             return set;
         }
     }

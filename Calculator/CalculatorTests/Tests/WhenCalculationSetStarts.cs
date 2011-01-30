@@ -1,12 +1,7 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Xml.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Tests.Core;
-using CalculationEngine;
-using CalculatorTests.Mocks;
 
 namespace Calculator.Tests
 {
@@ -15,7 +10,7 @@ namespace Calculator.Tests
     /// </summary>
     [TestClass]
     public class When_A_Calculation_Session_Starts : CalculationViewTest
-    { 
+    {
         [TestMethod]
         public void Calculation_SetID_Shold_No_Longer_Be_Default()
         {
@@ -27,11 +22,11 @@ namespace Calculator.Tests
         {
             view.CalculationSet.Count().ShouldEqual(0);
         }
-        
+
         [TestMethod]
         public void Result_Of_Last_Calculation_Should_Be_Zero()
         {
-            view.CalculationSet.CurrentResult.ShouldEqual(0D);   
+            view.CalculationSet.CurrentResult.ShouldEqual(0D);
         }
 
         [TestMethod]
@@ -40,6 +35,5 @@ namespace Calculator.Tests
             XElement xml = XElement.Parse(view.CalculationSet.HistoryAsXML);
             xml.DescendantNodes().Count().ShouldEqual(0);
         }
-        
     }
 }

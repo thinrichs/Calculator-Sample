@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Web.UI;
 using CalculationEngine;
 
 namespace Calculator
 {
-    public partial class CalculationHistory : System.Web.UI.Page
+    public partial class CalculationHistory : Page
     {
         // sourced from application
         public CalculationSet CalculationSet
@@ -20,7 +21,7 @@ namespace Calculator
             Response.AddHeader("Content-Length", history.Length.ToString());
             Response.ContentType = "text/xml";
             Response.Write(history);
-            Response.End(); 
+            Response.End();
         }
     }
 }

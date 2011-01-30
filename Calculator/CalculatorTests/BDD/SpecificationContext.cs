@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Calculator.Tests
 {
@@ -21,8 +17,17 @@ namespace Calculator.Tests
         {
             CleanUp();
         }
-        public virtual void CreateContext() { }
-        public virtual void Because() { }
-        public virtual void CleanUp() { }
-    }    
+
+        public virtual void CreateContext()
+        {
+        }
+
+        public virtual void Because()
+        {
+        }
+
+        public virtual void CleanUp()
+        {
+        }
+    }
 }
