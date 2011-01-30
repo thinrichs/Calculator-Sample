@@ -36,7 +36,7 @@ namespace CalculatorTests.Tests
         [TestMethod]
         public void Calculation_History_XML_Should_Have_Four_Calculations()
         {
-            XElement xml = XElement.Parse(view.CalculationSet.HistoryAsXML);
+            var xml = XElement.Parse(view.CalculationSet.HistoryAsXML);
             xml.DescendantNodes().Count().ShouldEqual(4);
         }
 
